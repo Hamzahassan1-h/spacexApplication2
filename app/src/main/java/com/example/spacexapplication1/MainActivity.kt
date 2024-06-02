@@ -16,11 +16,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.BottomAppBar
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.IconButton
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Home
@@ -56,7 +51,6 @@ import com.example.common.Routes.LaunchesNavRoutes
 import com.example.common.Routes.MissionsNavRoutes
 import com.example.common.Routes.RocketsNavRoutes
 import com.example.common.Routes.ShipsNavRoutes
-import com.example.spacex.R
 import com.example.spacexapplication1.ui.compose.list.History.HistoryDetailScreen
 import com.example.spacexapplication1.ui.compose.list.History.HistoryListScreen
 import com.example.spacexapplication1.ui.compose.list.Launches.LaunchesDetailsScreen

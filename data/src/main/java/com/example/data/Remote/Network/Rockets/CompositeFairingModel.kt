@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class CompositeFairingModel(
     @SerializedName("diameter")
-    val diameter: DiameterModel? = DiameterModel(),
-    @SerializedName("height")
-    val height: HeightModelX? = HeightModelX()
+    val diameter: DiameterModel? = DiameterModel()
+//    @SerializedName("height")
+//    val height: HeightModelX? = HeightModelX()
 )
