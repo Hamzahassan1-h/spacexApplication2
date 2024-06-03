@@ -15,10 +15,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -60,37 +65,75 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
                 val navController = rememberNavController()
                 App(navController = navController)
-
             }
         }
     }
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun App(navController: NavHostController) {
+    val topBarState = remember { mutableStateOf(false) }
     val bottomBarState = remember { mutableStateOf(true) }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+    val topBarTitle = remember(currentRoute) {
+        when (currentRoute) {
+            NavRoutes.ROUTE_CAPSULES -> "Capsules"
+            NavRoutes.Capsule.route -> "Capsule Details"
+            NavRoutes.ROUTE_HISTORY -> "History"
+            NavRoutes.History.route -> "History Details"
+            NavRoutes.ROUTE_MISSIONS -> "Missions"
+            NavRoutes.Missions.route -> "Mission Details"
+            NavRoutes.ROUTE_ROCKETS -> "Rockets"
+            NavRoutes.Rockets.route -> "Rocket Details"
+            NavRoutes.ROUTE_LAUNCHES -> "Launches"
+            NavRoutes.Launches.route -> "Launches Details"
+            NavRoutes.ROUTE_SHIPS -> "Ships"
+            NavRoutes.Ships.route -> "Ship Details"
+            else -> "Details"
+        }
+    }
 
     when (navBackStackEntry?.destination?.route) {
         NavRoutes.Home.route,
-            NavRoutes.Home.route -> {
-                bottomBarState.value = true
-            }
+        NavRoutes.Home.route -> {
+            bottomBarState.value = true
+            topBarState.value = false
+        }
+
         else -> {
             bottomBarState.value = false
+            topBarState.value = true
         }
     }
 
     Scaffold(
-        bottomBar = { BottomAppBar(navController) }
-
+        topBar = {
+            if (topBarState.value) {
+                TopAppBar(
+                    //backgroundColor = MaterialTheme.colorScheme.primary,
+                    title = { Text(text = topBarTitle) },
+                    navigationIcon = {
+                        IconButton(onClick = { navController.popBackStack() }) {
+                            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+                        }
+                    }
+                )
+            }
+        },
+        bottomBar = {
+            if (bottomBarState.value) {
+                BottomAppBar(navController = navController)
+            }
+        }
     ) { innerPadding ->
         NavHost(
             navController = navController,
@@ -160,6 +203,7 @@ fun App(navController: NavHostController) {
         }
     }
 }
+
 @Composable
 fun BottomAppBar(navController: NavHostController) {
     val auth = FirebaseAuth.getInstance()

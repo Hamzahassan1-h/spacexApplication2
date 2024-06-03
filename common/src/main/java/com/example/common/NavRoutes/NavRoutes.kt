@@ -13,12 +13,24 @@ sealed class NavRoutes(
     val arguments: List<NamedNavArgument> = emptyList()
 ) {
     data object Home : NavRoutes(ROUTE_HOME)
-    data object Capsule : NavRoutes(CapsuleNavRoutes.Details.route, CapsuleNavRoutes.Details.arguments)
-    data object History : NavRoutes(HistoryNavRoutes.Details.route, HistoryNavRoutes.Details.arguments)
-    data object Launches : NavRoutes(LaunchesNavRoutes.Details.route, LaunchesNavRoutes.Details.arguments)
-    data object Missions : NavRoutes(MissionsNavRoutes.Details.route, MissionsNavRoutes.Details.arguments)
-    data object Rockets : NavRoutes(RocketsNavRoutes.Details.route, RocketsNavRoutes.Details.arguments)
-    data object Ships : NavRoutes(ShipsNavRoutes.Details.route, ShipsNavRoutes.Details.arguments)
+    data object Capsule : NavRoutes(
+        CapsuleNavRoutes.Details.route, CapsuleNavRoutes.Details.arguments
+    )
+    data object History : NavRoutes(
+        HistoryNavRoutes.Details.route, HistoryNavRoutes.Details.arguments
+    )
+    data object Launches : NavRoutes(
+        LaunchesNavRoutes.Details.route, LaunchesNavRoutes.Details.arguments
+    )
+    data object Missions : NavRoutes(
+        MissionsNavRoutes.Details.route, MissionsNavRoutes.Details.arguments
+    )
+    data object Rockets : NavRoutes(
+        RocketsNavRoutes.Details.route, RocketsNavRoutes.Details.arguments
+    )
+    data object Ships : NavRoutes(
+        ShipsNavRoutes.Details.route, ShipsNavRoutes.Details.arguments
+    )
 
     companion object {
         const val ROUTE_LOGIN = "Logins"
