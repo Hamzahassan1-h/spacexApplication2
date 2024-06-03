@@ -48,6 +48,7 @@ class MainActivity : ComponentActivity() {
             MaterialTheme {
                 val navController = rememberNavController()
                 App(navController = navController)
+
             }
         }
     }
