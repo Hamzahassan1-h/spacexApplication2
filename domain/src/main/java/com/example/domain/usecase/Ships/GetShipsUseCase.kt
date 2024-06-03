@@ -16,8 +16,6 @@ class GetShipsUseCase(
             .map {
                 Response(it)
             }
-
-
     data object Request : UseCase.Request
     data class Response(val ships: List<Ships>) : UseCase.Response
 }

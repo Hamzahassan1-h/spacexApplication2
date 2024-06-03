@@ -1,16 +1,12 @@
 package com.example.common.NavRoutes
 
 import androidx.navigation.NamedNavArgument
-import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavType
-import androidx.navigation.navArgument
 import com.example.common.Routes.CapsuleNavRoutes
 import com.example.common.Routes.HistoryNavRoutes
 import com.example.common.Routes.LaunchesNavRoutes
 import com.example.common.Routes.MissionsNavRoutes
 import com.example.common.Routes.RocketsNavRoutes
 import com.example.common.Routes.ShipsNavRoutes
-import com.example.common.nav.CapsuleInput
 
 sealed class NavRoutes(
     val route: String,
@@ -24,12 +20,12 @@ sealed class NavRoutes(
     data object Ships : NavRoutes(ShipsNavRoutes.Details.route, ShipsNavRoutes.Details.arguments)
 
     companion object {
+        const val ROUTE_LOGIN = "Logins"
         const val ROUTE_CAPSULES = "capsules"
         const val ROUTE_MISSIONS = "missions"
         const val ROUTE_LAUNCHES = "launches"
         const val ROUTE_ROCKETS = "rockets"
         const val ROUTE_SHIPS = "ships"
-        const val ROUTE_AUTH = "auth"
         const val ROUTE_HISTORY = "history"
     }
 }

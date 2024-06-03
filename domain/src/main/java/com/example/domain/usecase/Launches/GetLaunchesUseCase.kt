@@ -18,7 +18,6 @@ class GetLaunchesUseCase(
             .map {
                 Response(it)
             }
-
     data object Request : UseCase.Request
     data class Response(val launches: List<Launches?>?) : UseCase.Response
 

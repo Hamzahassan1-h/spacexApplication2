@@ -17,8 +17,6 @@ class GetShipsByIdUseCase(
             .map {
                 Response(it)
             }
-
-
     data class Request(val id: String?) : UseCase.Request
     data class Response(val ship: Ships?) : UseCase.Response
 }

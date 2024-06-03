@@ -12,25 +12,25 @@ sealed class RocketsNavRoutes(
     val arguments: List<NamedNavArgument> = emptyList()
 ) {
     data object Details : RocketsNavRoutes(
-        route = "$ROUTE_ROCKET_DETAILS/{$ARG_ROCKET_DATA}",
+        route = "$ROUTE_ROCKETS_DETAILS/{$ARG_ROCKETS_DATA}",
         arguments = listOf(
-            navArgument(ARG_ROCKET_DATA) { type = NavType.StringType }
+            navArgument(ARG_ROCKETS_DATA) { type = NavType.StringType }
         )
     ) {
         fun routeForRocket(input: RocketsInputs): String {
             val json = Uri.encode(input.toJson())
-            return "$ROUTE_ROCKET_DETAILS/$json"
+            return "$ROUTE_ROCKETS_DETAILS/$json"
         }
 
         fun fromEntry(entry: NavBackStackEntry): RocketsInputs {
-            val json = entry.arguments?.getString(ARG_ROCKET_DATA) ?: ""
+            val json = entry.arguments?.getString(ARG_ROCKETS_DATA) ?: ""
             return RocketsInputs.fromJson(json)
         }
     }
 
     companion object {
-        const val ROUTE_ROCKET_DETAILS = "rocketDetails"
-        const val ARG_ROCKET_DATA = "rocketData"
+        const val ROUTE_ROCKETS_DETAILS = "rocketsDetails"
+        const val ARG_ROCKETS_DATA = "rocketsData"
     }
 }
 

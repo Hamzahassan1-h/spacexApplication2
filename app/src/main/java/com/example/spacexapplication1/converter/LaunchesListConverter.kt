@@ -2,7 +2,6 @@ package com.example.spacexapplication1.converter
 
 import android.content.Context
 import com.example.common.state.CommonResultConverter
-
 import com.example.domain.usecase.Launches.GetLaunchesUseCase
 import com.example.spacexapplication1.ui.compose.list.Launches.Launches
 import com.example.spacexapplication1.ui.compose.list.Launches.LaunchesListModel
@@ -24,7 +23,6 @@ class LaunchesListConverter @Inject constructor(
                     launchSuccess = it?.launchSuccess,
                     launchYear = it?.launchYear,
                     missionName = it?.missionName,
-
                     )
             }
         )

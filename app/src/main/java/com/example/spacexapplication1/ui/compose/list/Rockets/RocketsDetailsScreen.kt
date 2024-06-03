@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,17 +21,17 @@ fun RocketDetailsScreen(rocketInput: RocketsInputs) {
     ) {
         Text(
             text = "Company: ${rocketInput.company}",
-            style = MaterialTheme.typography.h6
+            style = MaterialTheme.typography.bodyMedium
         )
 
         Text(
             text = "Cost per Launch: $${rocketInput.costPerLaunch}",
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.bodyMedium
         )
 
         Text(
             text = "Description: ${rocketInput.description}",
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.bodyMedium
         )
 
     }

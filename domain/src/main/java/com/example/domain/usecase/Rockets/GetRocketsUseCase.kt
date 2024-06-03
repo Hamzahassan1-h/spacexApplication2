@@ -16,8 +16,6 @@ class GetRocketsUseCase(
             .map {
                 Response(it)
             }
-
-
     data object Request : UseCase.Request
     data class Response(val rockets: List<Rockets?>?) : UseCase.Response
 }

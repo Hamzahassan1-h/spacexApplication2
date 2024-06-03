@@ -18,10 +18,6 @@ class GetHistoryByIdUseCase (
                 Response(it)
             }
 
-
-
-
-
     data class Request(val id: Int?) : UseCase.Request
     data class Response(val historyItem: History?) : UseCase.Response
 }

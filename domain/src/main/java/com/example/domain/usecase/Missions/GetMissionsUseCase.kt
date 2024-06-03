@@ -15,7 +15,6 @@ class GetMissionsUseCase(
             .map {
                 Response(it)
             }
-
     data object Request : UseCase.Request
     data class Response(val missions: List<Missions?>?) : UseCase.Response
 

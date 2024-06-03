@@ -2,8 +2,6 @@ package com.example.spacexapplication1.converter
 
 import android.content.Context
 import com.example.common.state.CommonResultConverter
-
-
 import com.example.domain.usecase.Rockets.GetRocketsUseCase
 import com.example.spacexapplication1.ui.compose.list.Rockets.Rockets
 import com.example.spacexapplication1.ui.compose.list.Rockets.RocketsListModel

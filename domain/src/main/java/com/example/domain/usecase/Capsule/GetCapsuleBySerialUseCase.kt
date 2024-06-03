@@ -17,7 +17,6 @@ class GetCapsuleBySerialUseCase (
             .map {
                 Response(it)
             }
-
     data class Request(val serial: String?) : UseCase.Request
     data class Response(val capsule: Capsule?) : UseCase.Response
 }

@@ -12,8 +12,6 @@ data class CapsuleItemModel(
     val details: String? = "",
     @SerializedName("landings")
     val landings: Int? = 0,
-    @SerializedName("missions")
-    val missions: List<MissionModel?>? = listOf(),
     @SerializedName("original_launch")
     val originalLaunch: String? = "",
     @SerializedName("original_launch_unix")

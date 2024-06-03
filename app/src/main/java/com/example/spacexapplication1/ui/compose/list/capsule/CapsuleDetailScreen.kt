@@ -1,7 +1,6 @@
 package com.example.spacexapplication1.ui.compose.list.capsule
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,7 +26,7 @@ fun CapsuleDetailsScreen(capsuleInput: CapsuleInput) {
             .fillMaxWidth()
             .padding(16.dp)
             .clip(RoundedCornerShape(8.dp))
-            .background(MaterialTheme.colors.background)
+            .background(MaterialTheme.colorScheme.background)
             .shadow(4.dp, RoundedCornerShape(8.dp))
             .padding(16.dp)
     ) {
@@ -37,12 +36,12 @@ fun CapsuleDetailsScreen(capsuleInput: CapsuleInput) {
                 .fillMaxWidth()
                 .height(200.dp)
                 .clip(RoundedCornerShape(8.dp))
-                .background(MaterialTheme.colors.primaryVariant)
+                .background(MaterialTheme.colorScheme.onPrimaryContainer)
         ) {
             // You can add an actual image related to the capsule here
             Text(
                 text = "Capsule Image",
-                color = MaterialTheme.colors.background,
+                color = MaterialTheme.colorScheme.background,
                 modifier = Modifier.align(Alignment.Center)
             )
         }
@@ -52,13 +51,13 @@ fun CapsuleDetailsScreen(capsuleInput: CapsuleInput) {
         // Details Section
         Text(
             text = "Capsule Details",
-            style = MaterialTheme.typography.h6,
-            color = MaterialTheme.colors.primary
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.primary
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Divider(color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f))
+        Divider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f))
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -80,16 +79,16 @@ fun CapsuleDetailItem(label: String, value: String?) {
     ) {
         Text(
             text = label,
-            style = MaterialTheme.typography.subtitle1,
-            color = MaterialTheme.colors.primary
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.primary
         )
         Text(
             text = value ?: "N/A",
-            style = MaterialTheme.typography.body1,
-            color = MaterialTheme.colors.onSurface
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface
         )
         Divider(
-            color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f),
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
             thickness = 0.5.dp
         )
     }

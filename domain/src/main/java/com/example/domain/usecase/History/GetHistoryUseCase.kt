@@ -19,8 +19,6 @@ class GetHistoryUseCase(
             .map {
                 Response(it)
             }
-
-
     data object Request : UseCase.Request
     data class Response(val history: List<History?>?) : UseCase.Response
 

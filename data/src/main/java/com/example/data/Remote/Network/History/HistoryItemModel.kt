@@ -14,8 +14,6 @@ data class HistoryItemModel(
     val flightNumber: Int? = 0,
     @SerializedName("id")
     val id: Int? = 0,
-    @SerializedName("links")
-    val links: LinksModel? = LinksModel(),
     @SerializedName("title")
     val title: String? = ""
 )

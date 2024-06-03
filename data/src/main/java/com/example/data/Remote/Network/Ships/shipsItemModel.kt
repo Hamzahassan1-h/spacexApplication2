@@ -20,12 +20,8 @@ data class shipsItemModel(
     val image: String? = "",
     @SerializedName("imo")
     val imo: Int? = 0,
-    @SerializedName("missions")
-    val missions: List<MissionModel?>? = listOf(),
     @SerializedName("mmsi")
     val mmsi: Int? = 0,
-    @SerializedName("position")
-    val position: PositionModel? = PositionModel(),
     @SerializedName("roles")
     val roles: List<String?>? = listOf(),
     @SerializedName("ship_id")

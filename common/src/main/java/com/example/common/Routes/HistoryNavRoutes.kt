@@ -6,7 +6,6 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.example.common.nav.HistoryInput
-import com.google.gson.Gson
 
 sealed class HistoryNavRoutes(
     val route: String,
