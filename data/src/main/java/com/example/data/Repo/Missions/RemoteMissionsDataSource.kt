@@ -4,7 +4,7 @@ package com.example.data.Repo.Missions
 import com.example.domain.entity.Missions
 import kotlinx.coroutines.flow.Flow
 
-interface RemoteMissionDataSource {
+interface RemoteMissionsDataSource {
 
     fun getMissions(): Flow<List<Missions>>
 

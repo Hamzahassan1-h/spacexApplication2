@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 
 class MissionsRepositoryImpl(
-    private val remoteSource: RemoteMissionDataSource
+    private val remoteSource: RemoteMissionsDataSource
 ): MissionsRepository {
 
     override fun getMissions(): Flow<List<Missions>> {

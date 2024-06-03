@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class RemoteCapsuleDataSourceImpl (
+class RemoteCapsuleDataSourceImpl @Inject constructor (
     private val service: SpacexService
 ) : RemoteCapsuleDataSource {
     override fun getCapsules(): Flow<List<Capsule?>?> = flow {

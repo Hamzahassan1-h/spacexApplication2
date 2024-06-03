@@ -6,7 +6,7 @@ import com.example.domain.repo.RocketsRepository
 import kotlinx.coroutines.flow.Flow
 
 class RocketsRepositoryImpl(
-    private val remoteSource: RemoteRocketDataSource
+    private val remoteSource: RemoteRocketsDataSource
 ) : RocketsRepository {
     override fun getRockets(): Flow<List<Rockets>> {
         return remoteSource.getRockets()

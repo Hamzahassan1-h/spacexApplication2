@@ -7,11 +7,12 @@ import com.example.data.Repo.History.RemoteHistoryDataSource
 import com.example.data.Repo.Launches.LaunchesRepositoryImpl
 import com.example.data.Repo.Launches.RemoteLaunchesDataSource
 import com.example.data.Repo.Missions.MissionsRepositoryImpl
-import com.example.data.Repo.Missions.RemoteMissionDataSource
-import com.example.data.Repo.Rockets.RemoteRocketDataSource
+import com.example.data.Repo.Missions.RemoteMissionsDataSource
+import com.example.data.Repo.Rockets.RemoteRocketsDataSource
 import com.example.data.Repo.Rockets.RocketsRepositoryImpl
 import com.example.data.Repo.Ships.RemoteShipsDataSource
 import com.example.data.Repo.Ships.ShipsRepositoryImpl
+import com.example.domain.repo.CapsuleRepository
 import com.example.domain.repo.HistoryRepository
 import com.example.domain.repo.LaunchesRepository
 import com.example.domain.repo.MissionsRepository
@@ -29,7 +30,7 @@ class RepositoryModule {
     @Provides
     fun providesCapsuleRepository(
         remoteSource: RemoteCapsuleDataSource,
-      ): CapsuleRepositoryImplementation = CapsuleRepositoryImplementation(
+      ): CapsuleRepository = CapsuleRepositoryImplementation(
           remoteSource
       )
 
@@ -42,14 +43,14 @@ class RepositoryModule {
 
     @Provides
     fun providesMissionRepository(
-        remoteSource: RemoteMissionDataSource
+        remoteSource: RemoteMissionsDataSource
     ): MissionsRepository = MissionsRepositoryImpl(
         remoteSource
     )
 
     @Provides
     fun providesRocketRepository(
-        remoteSource: RemoteRocketDataSource
+        remoteSource: RemoteRocketsDataSource
     ) : RocketsRepository = RocketsRepositoryImpl(
         remoteSource
     )

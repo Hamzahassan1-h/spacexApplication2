@@ -2,7 +2,7 @@ package com.example.data.source.Rockets
 
 
 import com.example.data.Remote.Network.Rockets.RocketsItemModel
-import com.example.data.Repo.Rockets.RemoteRocketDataSource
+import com.example.data.Repo.Rockets.RemoteRocketsDataSource
 import com.example.data.service.SpacexService
 import com.example.domain.entity.Rockets
 import com.example.domain.entity.UseCaseException
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class RemoteRocketsDataSourceImpl @Inject constructor(
     private val service: SpacexService
-) : RemoteRocketDataSource {
+) : RemoteRocketsDataSource {
 
 
     override fun getRockets(): Flow<List<Rockets>> = flow {
