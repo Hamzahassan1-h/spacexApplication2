@@ -12,6 +12,7 @@ sealed class NavRoutes(
     val route: String,
     val arguments: List<NamedNavArgument> = emptyList()
 ) {
+    data object Home : NavRoutes(ROUTE_HOME)
     data object Capsule : NavRoutes(CapsuleNavRoutes.Details.route, CapsuleNavRoutes.Details.arguments)
     data object History : NavRoutes(HistoryNavRoutes.Details.route, HistoryNavRoutes.Details.arguments)
     data object Launches : NavRoutes(LaunchesNavRoutes.Details.route, LaunchesNavRoutes.Details.arguments)
@@ -21,6 +22,7 @@ sealed class NavRoutes(
 
     companion object {
         const val ROUTE_LOGIN = "Logins"
+        const val ROUTE_HOME = "HomeScreen"
         const val ROUTE_CAPSULES = "capsules"
         const val ROUTE_MISSIONS = "missions"
         const val ROUTE_LAUNCHES = "launches"

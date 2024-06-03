@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "842374289487",
+    "project_id": "spacexapplication1",
+    "storage_bucket": "spacexapplication1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842374289487:android:3d378f3792fe6a5cbbf23a",
+        "android_client_info": {
+          "package_name": "com.example.spacexapplication1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHLo5aDb_pnVWEDaXNg5PP1itvsOnWH9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

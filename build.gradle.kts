@@ -22,5 +22,6 @@ buildscript {
         //classpath ("com.google.gms:google-services:4.4.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.51.1")
+        classpath(libs.google.services)
     }
 }
