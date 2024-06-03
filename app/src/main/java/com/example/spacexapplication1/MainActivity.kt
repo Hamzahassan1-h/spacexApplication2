@@ -4,14 +4,29 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -37,6 +52,10 @@ import com.example.spacexapplication1.ui.compose.list.Ships.ShipsDetailsScreen
 import com.example.spacexapplication1.ui.compose.list.Ships.ShipsListScreen
 import com.example.spacexapplication1.ui.compose.list.capsule.CapsuleDetailsScreen
 import com.example.spacexapplication1.ui.compose.list.capsule.CapsuleListScreen
+import com.example.spacexapplication1.ui.compose.nav.HomeScreen
+import com.example.spacexapplication1.ui.compose.nav.LoginScreen
+import com.example.spacexapplication1.ui.compose.nav.signOut
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -60,14 +79,17 @@ fun App(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
 
     when (navBackStackEntry?.destination?.route) {
-
-
+        NavRoutes.Home.route,
+            NavRoutes.Home.route -> {
+                bottomBarState.value = true
+            }
         else -> {
             bottomBarState.value = false
         }
     }
 
     Scaffold(
+        bottomBar = { BottomAppBar(navController) }
 
     ) { innerPadding ->
         NavHost(
@@ -75,6 +97,12 @@ fun App(navController: NavHostController) {
             startDestination = NavRoutes.ROUTE_LOGIN,
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable(NavRoutes.ROUTE_LOGIN) {
+                LoginScreen(navController = navController)
+            }
+            composable(NavRoutes.Home.route) {
+                HomeScreen(navController = navController)
+            }
             composable(NavRoutes.ROUTE_CAPSULES) {
                 CapsuleListScreen(hiltViewModel(), navController = navController)
             }
@@ -129,6 +157,38 @@ fun App(navController: NavHostController) {
             ) {
                 ShipsDetailsScreen(ShipsNavRoutes.Details.fromEntry(it))
             }
+        }
+    }
+}
+@Composable
+fun BottomAppBar(navController: NavHostController) {
+    val auth = FirebaseAuth.getInstance()
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(56.dp)
+            .background(MaterialTheme.colorScheme.primary)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.End
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_launcher_background),
+                contentDescription = null,
+                modifier = Modifier
+                    .clickable { signOut(auth, navController) }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(
+                text = "Sign Out",
+                color = MaterialTheme.colorScheme.onPrimary,
+                modifier = Modifier
+                    .clickable { signOut(auth, navController) }
+            )
         }
     }
 }

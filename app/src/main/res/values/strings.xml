@@ -2,8 +2,12 @@
     <string name="app_name">spacexApplication1</string>
     <string name="sign_out_desc">Sign out</string>
     <string name="sign_out_head">Sign out</string>
+    <string name="background_image_desc">Background Image</string>
+    <string name="app_logo_desc">App Logo</string>
     <string name="sign_out_confirm">sign out confirm</string>
     <string name="yes_button">yes</string>
     <string name="no_button">no</string>
     <string name="home_desc">home</string>
+    <string name="app_slogan">Welcome to SpaceX.</string>
+    <string name="authenticate_text">Authenticate</string>
 </resources>
